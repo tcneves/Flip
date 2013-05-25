@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flip 3D</title>
+
+	<style>
+		h2 {text-align: center;}
+
+		.panel {
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			position: relative;
+			font-size: .8em;
+
+			-webkit-perspective: 600px;
+			-moz-perspective: 600px;
+		}
+
+		.panel .front {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 20;
+			width: inherit;
+			height: inherit;
+			border: 1px solid #ccc;
+			background: #6b7077;
+
+			box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+
+
+			-webkit-transform: rotateX(0deg) rotateY(0deg);
+			-moz-transform: rotateX(0deg) rotateY(0deg);
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			
+
+			-o-transition: all .4s ease-in-out;
+			-ms-transition: all .4s ease-in-out;
+			-moz-transition: all .4s ease-in-out;
+			-webkit-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+		}
+		
+		.panel .back {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			width: inherit;
+			height: inherit;
+			border: 1px solid #ccc;
+			background: #6b7077;
+
+			box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.9);
+			
+			-webkit-transform: rotateX(0deg) rotateY(-180deg);
+			-moz-transform: rotateX(0deg) rotateY(-180deg);
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-webkit-backface-visibility: hidden;
+			-moz-backface-visibility: hidden;
+			
+
+			-o-transition: all .4s ease-in-out;
+			-ms-transition: all .4s ease-in-out;
+			-moz-transition: all .4s ease-in-out;
+			-webkit-transition: all .4s ease-in-out;
+			transition: all .4s ease-in-out;
+
+		}
+
+
+		.panel.flip .front {
+			z-index: 20;
+			
+			-webkit-transform: rotateX(0deg) rotateY(180deg);
+			-moz-transform: rotateX(0deg) rotateY(180deg);
+		}
+
+		
+		.panel.flip .back {
+			z-index: 30;
+
+			-webkit-transform: rotateX(0deg) rotateY(0deg);
+			-moz-transform: rotateX(0deg) rotateY(0deg);
+		}
+
+		.panel.ie .front {
+			display: none;
+		}
+
+		.panel.ie .front {
+			display: block;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div class="panel">
+		<div class="front">
+			<div class="pad">
+				<h2>Mouse Over Me!</h2>
+			</div>
+		</div>
+
+		<div class="back">
+			<div class="pad">
+				<h2>Get that mouse away!</h2>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script>
+
+	if($('$html').hasClass('3dtransforms')){
+		$('.panel').hover(function(){
+			$(this).addClass('flip');
+		}, function() {
+			$(this).removeClass('flip');
+		})
+	} else {
+		
+	}
+
+		
+
+	</script>
+	
+</body>
+</html>
